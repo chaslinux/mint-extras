@@ -5,6 +5,8 @@
 # Linux Mint XFCE 22 (Wilma) deployments
 # Special thanks to Cecylia Bocovich for assistance with automating parts of the script
 # https://github.com/cohosh
+# Also thanks to https://prxk.net for the wallpaper he created in blender based on the
+# existing CR logo
 #
 # Just run as ./mint-extras.sh, DO NOT run as sudo ./mint-extras.sh
 
