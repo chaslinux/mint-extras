@@ -220,6 +220,10 @@ xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash --set true
 # then set it as the wallpaper
 mkdir ~/Pictures/Wallpaper
 cp CRbackground.png ~/Pictures/Wallpaper/.
+cp 1080p_spectacled_parrot.jpg ~/Pictures/Wallpaper/.
 xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/Pictures/Wallpaper/CRbackground.png
+xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitor0/image-path --set /home/$USER/Pictures/Wallpaper
+
+
 
 
