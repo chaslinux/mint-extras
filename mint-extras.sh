@@ -34,6 +34,9 @@ flatpak install com.discordapp.Discord -y
 # install Mission Center because it's a nice way to monitor resources
 flatpak install io.missioncenter.MissionCenter -y 
 
+# install Pinta, a nice simple graphics program
+flatpak install com.github.PintaProject.Pinta -y
+
 # install gparted, it's surprisingly not in Linux Mint XFCE
 sudo apt install gparted -y
 
