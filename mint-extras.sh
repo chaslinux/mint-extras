@@ -215,9 +215,14 @@ cp /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml ~/.config/x
 xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action --set 3
 
 # Show the default set of icons for the home folder, filesystem, removable drives and trash
+# also show tooltips for desktop icons
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-home --set true
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-removable --set true
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash --set true
+xfconf-query -c xfce4-desktop -p /desktop-icons/show-tooltips --set true
+
+# Set Linux Mint to update automatically
+sudo mintupdate-automation upgrade enable
 
 # Make a wallpaper directory ~/Pictures/Wallpaper and copy CR background to it
 # then set it as the wallpaper
