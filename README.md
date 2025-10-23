@@ -1,4 +1,4 @@
-![mint-extras.sh on Linux Mint XFCE 22.2](https://repository-images.githubusercontent.com/814845707/44704ff0-6719-46dd-b763-82da25fc9d7a.jpg)
+![mint-extras.sh on Linux Mint XFCE 22.2](https://repository-images.githubusercontent.com/814845707/44704ff0-6719-46dd-b763-82da25fc9d7a)
 
 This script updates the system and installs extra software we think would be useful to Linux Mint users. It also fixes a few things we consider issues (multimedia keys, power management settings), and sets a background that represents the Computer Recycling Project.
 
