@@ -195,9 +195,9 @@ fi
 sudo apt purge uvcdynctrl -y
 sudo apt autoremove -y
 
-# GIMP is not installed in Linux Mint, so let's install it
+# GIMP is not installed in Linux Mint, so let's install it, and the English gimp helpfiles
 echo "Installing GIMP..."
-sudo apt install gimp -y
+sudo apt install gimp gimp-help-en -y
 
 # Install Godot for making games
 sudo apt install godot3 -y
