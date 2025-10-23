@@ -10,12 +10,9 @@
 #
 # Just run as ./mint-extras.sh, DO NOT run as sudo ./mint-extras.sh
 
-
-# set the current directory
-currentdir=$(pwd)
-
-# Determine what the current desktop environment is and assign it to envdesk
-envdesk=$(echo $OSFAMILY $XDG_CURRENT_DESKTOP)
+currentdir=$(pwd) # set the current directory
+envdesk=$(echo $OSFAMILY $XDG_CURRENT_DESKTOP) # Determine what the current desktop environment is and assign it to envdesk
+GIMPLANG=$(locale | grep LANG | head -1 | cut -c 6- | cut -c -2)
 
 # Run updates first as some software may not install unless the system is
 # updated
@@ -197,7 +194,7 @@ sudo apt autoremove -y
 
 # GIMP is not installed in Linux Mint, so let's install it, and the English gimp helpfiles
 echo "Installing GIMP..."
-sudo apt install gimp gimp-help-en -y
+sudo apt install gimp gimp-help-$GIMPLANG -y
 
 # Install Godot for making games
 sudo apt install godot3 -y
