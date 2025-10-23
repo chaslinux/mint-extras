@@ -14,6 +14,9 @@
 # set the current directory
 currentdir=$(pwd)
 
+# Determine what the current desktop environment is and assign it to envdesk
+envdesk=$(echo $OSFAMILY $XDG_CURRENT_DESKTOP)
+
 # Run updates first as some software may not install unless the system is
 # updated
 sudo apt update && sudo apt upgrade -y
@@ -202,36 +205,47 @@ sudo apt install godot3 -y
 # Install Tuxtyping for kids
 sudo apt install tuxtype -y
 
-### The following changes are to make Linux Mint XFCE a bit more friendly. Other XFCE-based distributions
-### have these settings on, oddly Linux Mint XFCE doesn't.
-
-# Show volume adjustment when pressing volume keys
-xfconf-query -c xfce4-panel -p /plugins/plugin-12/show-notifications -r
-xfconf-query -c xfce4-panel -p /plugins/plugin-12/show-notifications -s true
-
-# Change the power button pressed action to ASK whether the person wants to power down (was do nothing)
-# xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action --create --type int --set 3
-cp /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
-xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action --set 3
-
-# Show the default set of icons for the home folder, filesystem, removable drives and trash
-# also show tooltips for desktop icons
-xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-home --set true
-xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-removable --set true
-xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash --set true
-xfconf-query -c xfce4-desktop -p /desktop-icons/show-tooltips --set true
-
-# Set Linux Mint to update automatically
-sudo mintupdate-automation upgrade enable
 
 # Make a wallpaper directory ~/Pictures/Wallpaper and copy CR background to it
 # then set it as the wallpaper
 mkdir ~/Pictures/Wallpaper
 cp CRbackground.png ~/Pictures/Wallpaper/.
 cp 1080p_spectacled_parrot.jpg ~/Pictures/Wallpaper/.
-xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/Pictures/Wallpaper/CRbackground.png
-xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitor0/image-path --set /home/$USER/Pictures/Wallpaper
 
+if [[ "$envdesk" == "XFCE" ]] ;
+    then
+        ### The following changes are to make Linux Mint XFCE a bit more friendly. Other XFCE-based distributions
+        ### have these settings on, oddly Linux Mint XFCE doesn't.
+
+        # Show volume adjustment when pressing volume keys
+        xfconf-query -c xfce4-panel -p /plugins/plugin-12/show-notifications -r
+        xfconf-query -c xfce4-panel -p /plugins/plugin-12/show-notifications -s true
+
+        # Change the power button pressed action to ASK whether the person wants to power down (was do nothing)
+        # xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action --create --type int --set 3
+        cp /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+        xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action --set 3
+
+        # Show the default set of icons for the home folder, filesystem, removable drives and trash
+        # also show tooltips for desktop icons
+        xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-home --set true
+        xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-removable --set true
+        xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash --set true
+        xfconf-query -c xfce4-desktop -p /desktop-icons/show-tooltips --set true
+
+        xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/Pictures/Wallpaper/CRbackground.png
+        xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitor0/image-path --set /home/$USER/Pictures/Wallpaper
+
+elif [[ "$envdesk" == "X-Cinnamon" ]];
+    then
+        gsettings set org.cinnamon.desktop.background picture-uri "file:///home/$USER/Pictures/Wallpaper"
+        gsettings set org.cinnamon.desktop.background picture-uri "file:///home/$USER/Pictures/Wallpaper/CRbackground.png"
+ else
+    echo "Unknown desktop environment..."
+fi
+
+# Set Linux Mint to update automatically
+sudo mintupdate-automation upgrade enable
 
 
 
