@@ -238,7 +238,7 @@ if [[ "$envdesk" == "XFCE" ]] ;
 
 elif [[ "$envdesk" == "X-Cinnamon" ]];
     then
-        gsettings set org.cinnamon.desktop.background picture-uri "file:///home/$USER/Pictures/Wallpaper"
+        echo "/home/$USER/Pictures/Wallpaper" >> /home/$USER/.config/cinnamon/backgrounds/user-folders.lst
         gsettings set org.cinnamon.desktop.background picture-uri "file:///home/$USER/Pictures/Wallpaper/CRbackground.png"
  else
     echo "Unknown desktop environment..."
