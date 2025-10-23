@@ -8,68 +8,68 @@ Software Installed (Flatpak)
 ----------------------------
 - OnlyOffice
 - Zoom
-Discord
-MissionCenter
-Pinta
-FreeCAD
-PySolFC
+- Discord
+- MissionCenter
+- Pinta
+- FreeCAD
+- PySolFC
 
 Software Installed (Apt / Repositories)
 ---------------------------------------
-GParted
-Gnome-firmware
-Cpupower-gui
-Btop
-Htop
-Mc
-Curl
-Git
-Build-essential
-Acpi
-Unip
-Webp-pixbuf-loader
-Steam
-Ttf-mscorefonts-installer
-GUVCView
-Cheese
-VLC
-Msttcorefonts
-CascadiaCode
-Gstreamer1.0-plugins-ugly
-Gstreamer1.0-plugins-bad
-Tuxpaint
-Libdvd-pkg
-Inkscape
-Krita
-Handbrake
-Winff
-LBreakout2
-Freedroid
-Frozen-Bubble
-Kobodeluxe
-Aileriot
-Gnome-mahjongg
-Icebreaker
-Supertux
-Mrrescue
-Pingus
-Caveexpress
-Hydrogen
-Hydrogen-drumkits
-Audacity
-Fastfetch
-Hardinfo
-CPU-X
-Tickebooth
-Xscreensaver & extras
-Putty
-Gnome-disk-utility
-Hfsprogs
-Hfsplus
-Hfsutils
-Lm-sensors
-GIMP (& GIMP help in installed language)
-Godot3
-Tuxtype
-Powertop
-TLP
+- GParted
+- Gnome-firmware
+- Cpupower-gui
+- Btop
+- Htop
+- Mc
+- Curl
+- Git
+- Build-essential
+- Acpi
+- Unzip
+- Webp-pixbuf-loader
+- Steam
+- Ttf-mscorefonts-installer
+- GUVCView
+- Cheese
+- VLC
+- Msttcorefonts
+- CascadiaCode
+- Gstreamer1.0-plugins-ugly
+- Gstreamer1.0-plugins-bad
+- Tuxpaint
+- Libdvd-pkg
+- Inkscape
+- Krita
+- Handbrake
+- Winff
+- LBreakout2
+- Freedroid
+- Frozen-Bubble
+- Kobodeluxe
+- Aileriot
+- Gnome-mahjongg
+- Icebreaker
+- Supertux
+- Mrrescue
+- Pingus
+- Caveexpress
+- Hydrogen
+- Hydrogen-drumkits
+- Audacity
+- Fastfetch
+- Hardinfo
+- CPU-X
+- Tickebooth
+- Xscreensaver & extras
+- Putty
+- Gnome-disk-utility
+- Hfsprogs
+- Hfsplus
+- Hfsutils
+- Lm-sensors
+- GIMP (& GIMP help in installed language)
+- Godot3
+- Tuxtype
+- Powertop
+- TLP
