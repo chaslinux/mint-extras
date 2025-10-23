@@ -6,8 +6,8 @@ The script installs the following software:
 
 Software Installed (Flatpak)
 ----------------------------
-OnlyOffice
-Zoom
+- OnlyOffice
+- Zoom
 Discord
 MissionCenter
 Pinta
