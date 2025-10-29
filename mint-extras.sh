@@ -10,9 +10,32 @@
 #
 # Just run as ./mint-extras.sh, DO NOT run as sudo ./mint-extras.sh
 
+# Add some colour to the script
+WHITE='\033[1;37m'
+NC='\033[0m'
+LTGREEN='\033[1;32m'
+PURPLE='\033[1;35m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+CYAN='\033[1;36m'
+
 currentdir=$(pwd) # set the current directory
 envdesk=$(echo $OSFAMILY $XDG_CURRENT_DESKTOP) # Determine what the current desktop environment is and assign it to envdesk
 GIMPLANG=$(locale | grep LANG | head -1 | cut -c 6- | cut -c -2)
+OS=$(sb_release -a | grep Distributor | cut -c 17-)
+LOCALE=$(echo $LANG | cut -c -5)
+
+if [[ "$OS" == "Linuxmint" ]]
+    then
+        if [[ "$LOCALE" == "en_CA" ]]
+            then
+            echo "${WHITE}*** ${PURPLE}This is Canada, so setting Univeristy of Waterloo to be local mirror. ${WHITE}***${NC}"
+            sudo cp $currentdir/official-package-repositories.list /etc/apt/sources.list.d/.
+        fi
+fi
+
+# Change the sources to the University of Waterloo
+
 
 # Run updates first as some software may not install unless the system is
 # updated
