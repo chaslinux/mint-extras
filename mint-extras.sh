@@ -22,7 +22,7 @@ CYAN='\033[1;36m'
 currentdir=$(pwd) # set the current directory
 envdesk=$(echo $OSFAMILY $XDG_CURRENT_DESKTOP) # Determine what the current desktop environment is and assign it to envdesk
 GIMPLANG=$(locale | grep LANG | head -1 | cut -c 6- | cut -c -2)
-OS=$(sb_release -a | grep Distributor | cut -c 17-)
+OS=$(lsb_release -a | grep Distributor | cut -c 17-)
 LOCALE=$(echo $LANG | cut -c -5)
 
 if [[ "$OS" == "Linuxmint" ]]
