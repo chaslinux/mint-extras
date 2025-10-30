@@ -29,7 +29,7 @@ if [[ "$OS" == "Linuxmint" ]]
     then
         if [[ "$LOCALE" == "en_CA" ]]
             then
-            echo "${WHITE}*** ${PURPLE}This is Canada, so setting Univeristy of Waterloo to be local mirror. ${WHITE}***${NC}"
+            echo -e "${WHITE}*** ${PURPLE}This is Canada, so setting Univeristy of Waterloo to be local mirror. ${WHITE}***${NC}"
             sudo cp $currentdir/official-package-repositories.list /etc/apt/sources.list.d/.
         fi
 fi
@@ -232,7 +232,7 @@ mkdir ~/Pictures/Wallpaper
 cp CRbackground.png ~/Pictures/Wallpaper/.
 cp 1080p_spectacled_parrot.jpg ~/Pictures/Wallpaper/.
 
-if [[ "$envdesk" == "XFCE" ]] ;
+if [ "$envdesk" == "XFCE" ];
     then
         ### The following changes are to make Linux Mint XFCE a bit more friendly. Other XFCE-based distributions
         ### have these settings on, oddly Linux Mint XFCE doesn't.
@@ -255,13 +255,12 @@ if [[ "$envdesk" == "XFCE" ]] ;
 
         xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/Pictures/Wallpaper/CRbackground.png
         xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitor0/image-path --set /home/$USER/Pictures/Wallpaper
+fi
 
-elif [[ "$envdesk" == "X-Cinnamon" ]];
+if [ "$envdesk" == "X-Cinnamon" ];
     then
         echo "/home/$USER/Pictures/Wallpaper" >> /home/$USER/.config/cinnamon/backgrounds/user-folders.lst
         gsettings set org.cinnamon.desktop.background picture-uri "file:///home/$USER/Pictures/Wallpaper/CRbackground.png"
- else
-    echo "Unknown desktop environment..."
 fi
 
 # Set Linux Mint to update automatically
