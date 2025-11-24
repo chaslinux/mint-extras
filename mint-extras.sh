@@ -1,13 +1,17 @@
 #!/bin/bash
+
 # Script started by Charles McColm, cr@theworkingcentre.org
 # for The Working Centre's Computer Recycling Project
-# Installs a bunch of extra software that's useful for our
-# Linux Mint XFCE 22 (Wilma) deployments
+# Installs a bunch of extra software that's useful for
+# Linux Mint XFCE or Cinnamon 22.2 deployments
+
 # Special thanks to Cecylia Bocovich for assistance with automating parts of the script
 # https://github.com/cohosh
+
 # Also thanks to https://prxk.net for the wallpaper he created in blender based on the
 # existing CR logo
-#
+
+
 # Just run as ./mint-extras.sh, DO NOT run as sudo ./mint-extras.sh
 
 # Add some colour to the script
@@ -39,7 +43,8 @@ fi
 
 # Run updates first as some software may not install unless the system is
 # updated
-sudo apt update && sudo apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
 
 # Mint already has integrated flatpack support
 
@@ -188,18 +193,7 @@ sudo apt install gnome-disk-utility -y
 # install tools to read MacOS formatted drives
 sudo apt install hfsprogs hfsplus hfsutils -y
 
-# set up the sensors
-sensors=$(dpkg -s lm-sensors | grep Status)
-if [ ! "$sensors" == "Status: install ok installed" ]
-	then
-		echo "Installing lm-sensors"
-		sudo apt install lm-sensors -y
-		sudo sensors-detect
-		sensors > /home/$USER/Desktop/sensors.txt
-	else
-		echo "Lm-sensors is already installed."
-  		sensors > /home/$USER/Desktop/sensors.txt
-fi
+# removed sensors and put in hardware.sh script -- November 24, 2025
 
 # set VLC to be the default DVD player
 # xfconf-query -c thunar-volman -p /autoplay-video-cds/command -s 'vlc dvd://'
