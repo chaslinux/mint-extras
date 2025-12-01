@@ -52,6 +52,7 @@ flatpak install us.zoom.Zoom -y
 flatpak install com.github.PintaProject.Pinta -y
 flatpak install org.godotengine.GodotSharp -y
 flatpak install io.sourceforge.pysolfc.PySolFC -y
+flatpak install net.nokyan.Resources -y
 
 ### Extra Apt Software ###
 sudo apt install gparted -y
