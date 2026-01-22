@@ -28,15 +28,22 @@ envdesk=$(echo $OSFAMILY $XDG_CURRENT_DESKTOP) # Determine what the current desk
 GIMPLANG=$(locale | grep LANG | head -1 | cut -c 6- | cut -c -2)
 OS=$(lsb_release -a | grep Distributor | cut -c 17-)
 LOCALE=$(echo $LANG | cut -c -5)
-distro=$(cat /etc/lsb-release | grep CODENAME)
+distro=$(cat /etc/linuxmint/info | grep CODENAME | cut -c 10-)
 
 ### Change the sources to the University of Waterloo if the Locale is Canadian ###
-if [[ "$OS" == "Linuxmint" ]]
+if [[ "$distro" == "zena" ]]
     then
         if [[ "$LOCALE" == "en_CA" ]]
             then
             echo -e "${WHITE}*** ${PURPLE}This is Canada, so setting Univeristy of Waterloo to be local mirror. ${WHITE}***${NC}"
-            sudo cp $currentdir/official-package-repositories.list /etc/apt/sources.list.d/.
+            sudo cp $currentdir/zena-official-package-repositories.list /etc/apt/sources.list.d/official-package-repositories.list
+        fi
+elif [[ "$distro" == "zara" ]]
+    then
+        if [[ "$LOCALE" == "en_CA" ]]
+            then
+            echo -e "${WHITE}*** ${PURPLE}This is Canada, so setting Univeristy of Waterloo to be local mirror. ${WHITE}***${NC}"
+            sudo cp $currentdir/zara-official-package-repositories.list /etc/apt/sources.list.d/official-package-repositories.list
         fi
 fi
 
