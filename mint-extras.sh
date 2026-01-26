@@ -30,6 +30,9 @@ OS=$(lsb_release -a | grep Distributor | cut -c 17-)
 LOCALE=$(echo $LANG | cut -c -5)
 distro=$(cat /etc/linuxmint/info | grep CODENAME | cut -c 10-)
 
+### Copy a link to some Linux Mint videos to the desktop
+cp $currentdir/Linux_Mint-Getting_Started.desktop /home/$USER/Desktop/.
+
 ### Change the sources to the University of Waterloo if the Locale is Canadian ###
 if [[ "$distro" == "zena" ]]
     then
