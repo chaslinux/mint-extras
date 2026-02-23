@@ -54,17 +54,8 @@ fi
 sudo apt update
 sudo apt upgrade -y
 
-### Extra Flatpak Software ###
-
-# Install OnlyOffice
-flatpak install org.onlyoffice.desktopeditors -y
-flatpak install us.zoom.Zoom -y
-flatpak install com.github.PintaProject.Pinta -y
-flatpak install org.godotengine.GodotSharp -y
-flatpak install io.sourceforge.pysolfc.PySolFC -y
-flatpak install net.nokyan.Resources -y
-
 ### Extra Apt Software ###
+sudo apt install gnome-contacts -y
 sudo apt install gparted -y
 sudo apt install gnome-firmware -y
 sudo apt install btop mc curl git build-essential acpi unzip -y
@@ -93,6 +84,16 @@ sudo apt install hfsprogs hfsplus hfsutils -y # install tools to read MacOS form
 echo "Installing GIMP..."
 sudo apt install gimp gimp-help-$GIMPLANG -y
 sudo apt install klavaro -y
+
+### Extra Flatpak Software ###
+# Install OnlyOffice & extra programs
+flatpak update
+flatpak install org.onlyoffice.desktopeditors -y
+flatpak install us.zoom.Zoom -y
+flatpak install com.github.PintaProject.Pinta -y
+flatpak install org.godotengine.GodotSharp -y
+flatpak install io.sourceforge.pysolfc.PySolFC -y
+flatpak install net.nokyan.Resources -y
 
 ### check if this appears to be a laptop and if so install tlp and powertop ###
 if [ -d "/proc/acpi/button/lid" ]; then
