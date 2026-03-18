@@ -138,6 +138,9 @@ fi
 
 if [ "$envdesk" == "X-Cinnamon" ];
     then
+        if [ ! -d "/home/$USER/.config/cinnamon/backgrounds/" ]; then
+            mkdir -p /home/$USER/.config/cinnamon/backgrounds/
+        fi
         echo "/home/$USER/Pictures/Wallpaper" >> /home/$USER/.config/cinnamon/backgrounds/user-folders.lst
         gsettings set org.cinnamon.desktop.background picture-uri "file:///home/$USER/Pictures/Wallpaper/CRbackground.png"
 fi
