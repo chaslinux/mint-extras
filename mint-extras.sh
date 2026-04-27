@@ -108,7 +108,7 @@ sudo apt autoremove -y
 ### Make a wallpaper directory ~/Pictures/Wallpaper and copy CR background to it ###
 ### then set it as the wallpaper ###
 mkdir ~/Pictures/Wallpaper
-cp CRbackground.png ~/Pictures/Wallpaper/.
+cp CRbackground.jpg ~/Pictures/Wallpaper/.
 cp 1080p_spectacled_parrot.jpg ~/Pictures/Wallpaper/.
 
 if [ "$envdesk" == "XFCE" ];
@@ -132,7 +132,7 @@ if [ "$envdesk" == "XFCE" ];
         xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash --set true
         xfconf-query -c xfce4-desktop -p /desktop-icons/show-tooltips --set true
 
-        xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/Pictures/Wallpaper/CRbackground.png
+        xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/Pictures/Wallpaper/CRbackground.jpg
         xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitor0/image-path --set /home/$USER/Pictures/Wallpaper
 fi
 
@@ -142,7 +142,7 @@ if [ "$envdesk" == "X-Cinnamon" ];
             mkdir -p /home/$USER/.config/cinnamon/backgrounds/
         fi
         echo "/home/$USER/Pictures/Wallpaper" >> /home/$USER/.config/cinnamon/backgrounds/user-folders.lst
-        gsettings set org.cinnamon.desktop.background picture-uri "file:///home/$USER/Pictures/Wallpaper/CRbackground.png"
+        gsettings set org.cinnamon.desktop.background picture-uri "file:///home/$USER/Pictures/Wallpaper/CRbackground.jpg"
 fi
 
 # Set Linux Mint to update automatically
