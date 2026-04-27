@@ -108,8 +108,8 @@ sudo apt autoremove -y
 ### Make a wallpaper directory ~/Pictures/Wallpaper and copy CR background to it ###
 ### then set it as the wallpaper ###
 mkdir ~/Pictures/Wallpaper
-cp CRbackground.jpg ~/Pictures/Wallpaper/.
-cp 1080p_spectacled_parrot.jpg ~/Pictures/Wallpaper/.
+cp *.jpg ~/Pictures/Wallpaper/.
+
 
 if [ "$envdesk" == "XFCE" ];
     then
