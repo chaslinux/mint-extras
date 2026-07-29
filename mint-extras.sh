@@ -151,3 +151,6 @@ sudo mintupdate-automation upgrade enable
 # Enable on screen notifications when CAPS Lock or NUM Lock are pressed
 gsettings set org.cinnamon.desktop.a11y.keyboard togglekeys-enable-osd true
 
+# Eanble the firewall
+sudo ufw enable
+
