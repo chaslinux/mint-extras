@@ -29,6 +29,8 @@ GIMPLANG=$(locale | grep LANG | head -1 | cut -c 6- | cut -c -2)
 OS=$(lsb_release -a | grep Distributor | cut -c 17-)
 LOCALE=$(echo $LANG | cut -c -5)
 distro=$(cat /etc/linuxmint/info | grep CODENAME | cut -c 10-)
+GODOTSHARP="org.godotengine.GodotSharp"
+GODOT="org.godotengine.Godot"
 
 ### Copy a link to some Linux Mint videos to the desktop
 cp $currentdir/Linux_Mint-Getting_Started.desktop /home/$USER/Desktop/.
@@ -91,7 +93,20 @@ flatpak update
 flatpak install org.onlyoffice.desktopeditors -y
 flatpak install us.zoom.Zoom -y
 flatpak install com.github.PintaProject.Pinta -y
-flatpak install org.godotengine.GodotSharp -y
+# Check if GodotSharp (.NET) is installed
+if flatpak list --app | grep -q "$GODOTSHARP"; then
+    echo "GodotSharp is installed. Removing it and installing standard Godot..."
+    flatpak uninstall -y "$GODOTSHARP"
+    flatpak install -y flathub "$GODOT"
+# If GodotSharp is missing, check if standard Godot is also missing
+elif ! flatpak list --app | grep -q "$GODOT"; then
+    echo "Neither version is installed. Installing standard Godot..."
+    flatpak install -y flathub "$GODOT"
+else
+    echo "Standard Godot is already installed. No changes needed."
+fi
+# flatpak install org.godotengine.GodotSharp -y 
+flatpak install org.godotengine.Godot -y
 flatpak install io.sourceforge.pysolfc.PySolFC -y
 flatpak install net.nokyan.Resources -y
 
