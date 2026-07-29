@@ -148,3 +148,6 @@ fi
 # Set Linux Mint to update automatically
 sudo mintupdate-automation upgrade enable
 
+# Enable on screen notifications when CAPS Lock or NUM Lock are pressed
+gsettings org.cinnamon.desktop.a11y.keyboard togglekeys-enable-osd true
+
